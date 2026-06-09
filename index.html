@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mattheus & Pamela — Feliz Dia dos Namorados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fdf6f0;
+  --blush:#fce8ea;
+  --rose:#b76680;
+  --rose-deep:#8a3f5a;
+  --gold:#c9a86a;
+  --gold-deep:#a3854b;
+  --wine:#4a2c3a;
+  --ink:#3a2530;
+  --shadow:rgba(138,63,90,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  background:
+    radial-gradient(ellipse at top, #fce8ea 0%, transparent 55%),
+    radial-gradient(ellipse at bottom right, #fbe9d8 0%, transparent 55%),
+    var(--cream);
+  color:var(--ink);
+  font-size:18px;
+  line-height:1.65;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+::selection{background:var(--rose);color:#fff}
+
+/* Floating hearts */
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.heart{
+  position:absolute;bottom:-40px;
+  font-size:18px;color:var(--rose);opacity:.35;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  10%{opacity:.45}
+  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px;z-index:2;
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;width:280px;height:280px;
+  background:radial-gradient(circle, var(--blush), transparent 70%);
+  border-radius:50%;filter:blur(10px);z-index:-1;
+}
+.hero::before{top:8%;left:-80px}
+.hero::after{bottom:8%;right:-80px}
+.hero .ornament{
+  font-family:'Great Vibes',cursive;color:var(--gold);font-size:28px;
+  letter-spacing:2px;margin-bottom:14px;opacity:.9;
+}
+.hero h1{
+  font-family:'Great Vibes', cursive;
+  font-size:clamp(64px, 12vw, 148px);
+  color:var(--rose-deep);
+  line-height:1;font-weight:400;
+  text-shadow:0 4px 30px var(--shadow);
+}
+.hero h1 .amp{
+  font-family:'Playfair Display', serif;
+  font-style:italic;font-weight:400;
+  color:var(--gold-deep);font-size:.6em;
+  margin:0 .12em;vertical-align:.05em;
+}
+.hero .subtitle{
+  font-family:'Playfair Display', serif;
+  font-style:italic;color:var(--wine);
+  font-size:clamp(18px,2vw,22px);
+  letter-spacing:6px;text-transform:uppercase;
+  margin-top:18px;
+}
+.hero .date-pill{
+  margin-top:30px;display:inline-flex;align-items:center;gap:14px;
+  padding:12px 26px;border:1px solid var(--gold);
+  border-radius:999px;color:var(--gold-deep);
+  font-family:'Playfair Display',serif;font-size:16px;
+  letter-spacing:3px;text-transform:uppercase;
+  background:rgba(255,255,255,.45);backdrop-filter:blur(6px);
+}
+.hero .date-pill svg{width:16px;height:16px;fill:var(--rose)}
+.hero .scroll-cue{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  color:var(--rose);opacity:.6;font-size:14px;
+  letter-spacing:3px;text-transform:uppercase;
+  animation:bounce 2.4s ease-in-out infinite;
+}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* Decorative divider */
+.divider{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  color:var(--gold);margin:50px auto;max-width:520px;
+}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.divider .icon{font-family:'Great Vibes',cursive;font-size:28px}
+
+/* Sections common */
+section{position:relative;z-index:2;padding:80px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,5vw,52px);
+  color:var(--rose-deep);text-align:center;
+  font-weight:600;font-style:italic;
+}
+.section-title::after{
+  content:"";display:block;width:60px;height:2px;
+  background:var(--gold);margin:14px auto 0;
+}
+.section-kicker{
+  text-align:center;font-family:'Playfair Display',serif;
+  letter-spacing:6px;text-transform:uppercase;
+  color:var(--gold-deep);font-size:13px;margin-bottom:6px;
+}
+
+/* COUNTER */
+.counter-section{padding-top:30px;padding-bottom:30px}
+.counter{
+  max-width:920px;margin:0 auto;
+  background:linear-gradient(135deg, rgba(255,255,255,.7), rgba(252,232,234,.6));
+  border:1px solid rgba(201,168,106,.4);
+  border-radius:22px;padding:36px 24px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  box-shadow:0 20px 60px var(--shadow);
+}
+.counter .cell{text-align:center;position:relative}
+.counter .cell + .cell::before{
+  content:"";position:absolute;left:-9px;top:20%;bottom:20%;width:1px;
+  background:linear-gradient(180deg,transparent,var(--gold),transparent);
+}
+.counter .num{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,5vw,58px);
+  color:var(--rose-deep);font-weight:600;line-height:1;
+}
+.counter .lbl{
+  margin-top:8px;font-size:12px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--gold-deep);
+  font-family:'Playfair Display',serif;
+}
+@media (max-width:640px){
+  .counter{grid-template-columns:repeat(2,1fr);gap:24px}
+  .counter .cell + .cell::before{display:none}
+}
+
+/* INTRO */
+.intro .container{max-width:780px;text-align:center}
+.intro p{font-size:21px;color:var(--wine);margin-top:20px}
+.intro p .em{font-family:'Playfair Display',serif;font-style:italic;color:var(--rose-deep)}
+
+/* TIMELINE */
+.timeline-section{padding-top:60px}
+.timeline{
+  position:relative;max-width:980px;margin:60px auto 0;
+}
+.timeline::before{
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg, transparent, var(--gold) 8%, var(--gold) 92%, transparent);
+  transform:translateX(-50%);
+}
+.tl-item{
+  position:relative;width:50%;padding:24px 44px;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.tl-item.in{opacity:1;transform:none}
+.tl-item:nth-child(odd){left:0;text-align:right}
+.tl-item:nth-child(even){left:50%;text-align:left}
+.tl-item .dot{
+  position:absolute;top:32px;width:18px;height:18px;border-radius:50%;
+  background:var(--rose);border:3px solid var(--cream);
+  box-shadow:0 0 0 2px var(--gold), 0 4px 14px var(--shadow);
+}
+.tl-item:nth-child(odd) .dot{right:-9px}
+.tl-item:nth-child(even) .dot{left:-9px}
+.tl-card{
+  background:rgba(255,255,255,.78);backdrop-filter:blur(4px);
+  border:1px solid rgba(201,168,106,.35);
+  border-radius:16px;padding:22px 26px;
+  box-shadow:0 14px 40px var(--shadow);
+  display:inline-block;text-align:left;max-width:100%;
+}
+.tl-card .when{
+  font-family:'Playfair Display',serif;font-style:italic;
+  color:var(--gold-deep);font-size:14px;letter-spacing:3px;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.tl-card h3{
+  font-family:'Playfair Display',serif;font-weight:600;
+  color:var(--rose-deep);font-size:24px;margin-bottom:8px;
+}
+.tl-card p{color:var(--wine);font-size:17px}
+.tl-card .icon{
+  display:inline-block;font-family:'Great Vibes',cursive;
+  color:var(--rose);font-size:26px;margin-right:6px;
+}
+@media (max-width:760px){
+  .timeline::before{left:18px}
+  .tl-item, .tl-item:nth-child(even){width:100%;left:0;padding:18px 18px 18px 48px;text-align:left}
+  .tl-item:nth-child(odd){text-align:left}
+  .tl-item .dot, .tl-item:nth-child(odd) .dot, .tl-item:nth-child(even) .dot{left:9px;right:auto}
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:140px;gap:14px;margin-top:50px;
+}
+.photo{
+  position:relative;overflow:hidden;border-radius:14px;
+  background:linear-gradient(135deg,#f4d7df,#f0e3cc);
+  border:1px solid rgba(201,168,106,.35);
+  box-shadow:0 10px 30px var(--shadow);
+  transition:transform .5s ease, box-shadow .5s ease;
+}
+.photo:hover{transform:translateY(-4px);box-shadow:0 18px 44px var(--shadow)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--rose-deep);font-family:'Great Vibes',cursive;font-size:42px;
+  opacity:.55;text-align:center;padding:18px;
+}
+.photo .caption{
+  position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,transparent,rgba(74,44,58,.78));
+  color:#fff;padding:24px 16px 14px;font-family:'Playfair Display',serif;
+  font-style:italic;font-size:15px;letter-spacing:1px;
+  opacity:0;transform:translateY(10px);transition:.4s;
+}
+.photo:hover .caption{opacity:1;transform:none}
+.photo.big{grid-column:span 6;grid-row:span 2}
+.photo.med{grid-column:span 4;grid-row:span 2}
+.photo.tall{grid-column:span 3;grid-row:span 2}
+.photo.wide{grid-column:span 6;grid-row:span 1}
+.photo.sq{grid-column:span 3;grid-row:span 1}
+@media (max-width:760px){
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .photo, .photo.big, .photo.med, .photo.tall, .photo.wide, .photo.sq{
+    grid-column:span 1;grid-row:span 1;
+  }
+  .photo.big{grid-column:span 2;grid-row:span 2}
+}
+
+/* LETTER */
+.letter-section{padding:120px 24px}
+.letter{
+  max-width:760px;margin:50px auto 0;position:relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.85), rgba(252,232,234,.6)),
+    repeating-linear-gradient(180deg, transparent 0 34px, rgba(183,102,128,.08) 34px 35px);
+  border:1px solid rgba(201,168,106,.45);
+  border-radius:18px;padding:60px 50px;
+  box-shadow:0 30px 80px var(--shadow);
+}
+.letter::before, .letter::after{
+  content:"";position:absolute;width:60px;height:60px;
+  border:1px solid var(--gold);opacity:.6;
+}
+.letter::before{top:14px;left:14px;border-right:none;border-bottom:none}
+.letter::after{bottom:14px;right:14px;border-left:none;border-top:none}
+.letter .greet{
+  font-family:'Great Vibes',cursive;color:var(--rose-deep);
+  font-size:46px;line-height:1;margin-bottom:18px;
+}
+.letter p{font-size:19px;color:var(--ink);margin-bottom:16px;text-align:justify}
+.letter p.first::first-letter{
+  font-family:'Playfair Display',serif;font-size:54px;
+  color:var(--rose-deep);float:left;line-height:.9;
+  padding:6px 10px 0 0;font-style:italic;
+}
+.letter .sign{
+  margin-top:30px;text-align:right;
+  font-family:'Great Vibes',cursive;color:var(--gold-deep);font-size:42px;
+}
+@media (max-width:600px){
+  .letter{padding:46px 26px}
+  .letter p{text-align:left}
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;padding:60px 24px 50px;
+  color:var(--gold-deep);font-family:'Playfair Display',serif;
+  font-style:italic;letter-spacing:2px;
+}
+.footer .heart{
+  display:inline-block;color:var(--rose);font-size:22px;
+  animation:beat 1.4s ease-in-out infinite;
+  position:static;opacity:1;
+}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.footer .small{display:block;margin-top:10px;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--rose-deep)}
+
+/* Timeline thumbnail */
+.tl-thumb{
+  margin:-22px -26px 16px;
+  height:200px;overflow:hidden;
+  border-radius:16px 16px 0 0;
+  position:relative;
+}
+.tl-thumb img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s ease}
+.tl-card:hover .tl-thumb img{transform:scale(1.04)}
+
+/* Body lock while gate visible */
+body.locked{overflow:hidden;height:100vh}
+
+/* GATE OVERLAY */
+.gate{
+  position:fixed;inset:0;z-index:9999;
+  background:
+    radial-gradient(ellipse at top, #fce8ea 0%, transparent 55%),
+    radial-gradient(ellipse at bottom right, #fbe9d8 0%, transparent 55%),
+    var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;overflow-y:auto;
+  transition:opacity .9s ease, visibility .9s ease;
+}
+.gate.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.gate-card{
+  max-width:620px;width:100%;
+  background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(252,232,234,.7));
+  border:1px solid rgba(201,168,106,.45);
+  border-radius:22px;padding:50px 40px;
+  box-shadow:0 30px 80px var(--shadow);
+  text-align:center;position:relative;
+  animation:gateIn .8s ease;
+}
+@keyframes gateIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.gate-card .ornament{
+  font-family:'Great Vibes',cursive;color:var(--gold);
+  font-size:26px;letter-spacing:2px;margin-bottom:6px;
+}
+.gate-card h1{
+  font-family:'Great Vibes',cursive;color:var(--rose-deep);
+  font-size:clamp(58px,10vw,92px);line-height:1;font-weight:400;
+  margin-bottom:14px;
+}
+.gate-card .intro-text{
+  font-family:'Cormorant Garamond',serif;color:var(--wine);
+  font-size:18px;margin-bottom:30px;
+}
+.gate-card .intro-text strong{color:var(--rose-deep);font-style:italic}
+.q-num{
+  font-family:'Playfair Display',serif;letter-spacing:5px;
+  text-transform:uppercase;font-size:12px;color:var(--gold-deep);
+  margin-bottom:8px;
+}
+.quiz-step{display:none;animation:gateIn .5s ease}
+.quiz-step.active{display:block}
+.quiz-step h3{
+  font-family:'Playfair Display',serif;font-style:italic;
+  color:var(--rose-deep);font-size:24px;margin-bottom:22px;
+  font-weight:600;
+}
+.opt{
+  display:block;width:100%;margin:10px 0;
+  padding:14px 18px;
+  font-family:'Cormorant Garamond',serif;font-size:18px;
+  color:var(--wine);background:rgba(255,255,255,.85);
+  border:1px solid rgba(201,168,106,.4);border-radius:12px;
+  cursor:pointer;transition:.25s;text-align:left;
+}
+.opt:hover{background:#fff;border-color:var(--rose);
+  transform:translateY(-2px);box-shadow:0 8px 20px var(--shadow)}
+.opt.wrong{
+  background:#fde8ec;border-color:#c44a6b;color:#8a3f5a;
+  animation:shake .5s;
+}
+.opt.right{
+  background:#f0e4d2;border-color:var(--gold);color:var(--gold-deep);
+  font-weight:600;
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-6px)}
+  80%{transform:translateX(6px)}
+}
+.feedback{
+  min-height:24px;margin-top:14px;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:15px;color:var(--rose);
+}
+.feedback.ok{color:var(--gold-deep)}
+.progress{
+  display:flex;justify-content:center;gap:10px;margin-top:26px;
+}
+.progress .pdot{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(201,168,106,.3);transition:.3s;
+}
+.progress .pdot.done{background:var(--rose);transform:scale(1.2)}
+.gate-final{display:none;text-align:center}
+.gate-final.show{display:block;animation:gateIn .6s ease}
+.gate-final h3{
+  font-family:'Great Vibes',cursive;color:var(--rose-deep);
+  font-size:54px;line-height:1;margin-bottom:14px;
+}
+.gate-final p{color:var(--wine);font-size:18px;margin-bottom:22px}
+.gate-final button{
+  font-family:'Playfair Display',serif;font-size:14px;
+  letter-spacing:4px;text-transform:uppercase;
+  padding:14px 36px;border-radius:999px;cursor:pointer;
+  background:var(--rose-deep);color:#fff;border:none;
+  box-shadow:0 14px 36px var(--shadow);transition:.3s;
+}
+.gate-final button:hover{background:var(--rose);transform:translateY(-2px)}
+
+/* LIGHTBOX */
+.tl-thumb{cursor:zoom-in}
+.photo{cursor:zoom-in}
+.lightbox{
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(35,15,25,.92);
+  display:none;align-items:center;justify-content:center;
+  padding:30px;opacity:0;transition:opacity .35s ease;
+}
+.lightbox.show{display:flex;opacity:1}
+.lightbox img{
+  max-width:96vw;max-height:90vh;
+  border-radius:10px;
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
+  animation:lbIn .35s ease;
+}
+@keyframes lbIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.lightbox .lb-cap{
+  position:absolute;left:0;right:0;bottom:24px;text-align:center;
+  font-family:'Playfair Display',serif;font-style:italic;color:#f5e6df;
+  font-size:15px;letter-spacing:1px;padding:0 24px;
+}
+.lightbox .lb-close{
+  position:absolute;top:22px;right:24px;
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,.15);color:#fff;
+  border:1px solid rgba(255,255,255,.3);
+  font-size:22px;cursor:pointer;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  transition:.25s;
+}
+.lightbox .lb-close:hover{background:rgba(255,255,255,.3);transform:rotate(90deg)}
+
+/* VALENTINE'S BADGES */
+.vday-badge{
+  display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+  padding:14px 28px;margin-bottom:24px;
+  background:linear-gradient(135deg, rgba(183,102,128,.15), rgba(201,168,106,.12));
+  border:1px solid rgba(183,102,128,.5);
+  border-radius:999px;
+  color:var(--rose-deep);
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:15px;letter-spacing:3px;text-transform:uppercase;
+  box-shadow:0 14px 36px var(--shadow);
+  backdrop-filter:blur(6px);
+  animation:vdayPulse 2.6s ease-in-out infinite;
+}
+.vday-badge span{color:var(--rose);font-size:14px;animation:beat 1.4s ease-in-out infinite;display:inline-block}
+.vday-badge small{
+  font-family:'Cormorant Garamond',serif;font-style:normal;
+  letter-spacing:6px;font-size:11px;color:var(--gold-deep);
+}
+@keyframes vdayPulse{
+  0%,100%{box-shadow:0 14px 36px var(--shadow), 0 0 0 0 rgba(183,102,128,.0)}
+  50%{box-shadow:0 14px 36px var(--shadow), 0 0 0 10px rgba(183,102,128,.08)}
+}
+.vday-mini{
+  display:inline-block;margin-bottom:14px;
+  padding:8px 18px;border-radius:999px;
+  background:rgba(252,232,234,.85);
+  border:1px solid rgba(183,102,128,.35);
+  color:var(--rose-deep);
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:13px;letter-spacing:3px;text-transform:uppercase;
+}
+.vday-foot{
+  margin-top:24px;color:var(--rose-deep);
+  font-family:'Playfair Display',serif;font-style:italic;
+  letter-spacing:3px;text-transform:uppercase;font-size:13px;
+  line-height:1.8;
+}
+.vday-foot em{
+  display:inline-block;margin-top:4px;
+  font-family:'Great Vibes',cursive;font-style:normal;
+  text-transform:none;letter-spacing:1px;font-size:22px;
+  color:var(--gold-deep);
+}
+
+/* Hero gets a softer rose tone for Valentine */
+.hero{background:radial-gradient(ellipse at center, rgba(252,232,234,.6) 0%, transparent 70%)}
+
+/* TYPEWRITER (letter) */
+.letter .tw{min-height:1em;white-space:pre-wrap}
+.letter .tw.typing::after{
+  content:'';display:inline-block;width:2px;height:.95em;
+  margin-left:3px;vertical-align:-.12em;
+  background:var(--rose-deep);
+  animation:caret .75s steps(1) infinite;
+}
+@keyframes caret{50%{opacity:0}}
+.letter .tw.pending{opacity:.35}
+</style>
+</head>
+<body class="locked">
+
+<!-- GATE / QUIZ -->
+<div class="gate" id="gate" role="dialog" aria-modal="true">
+  <div class="gate-card">
+    <div class="ornament">~ uma surpresa para você ~</div>
+    <div class="vday-mini">&#10084; Feliz Dia dos Namorados &#10084;</div>
+    <h1>Pamela</h1>
+    <p class="intro-text">Antes de abrir, responda <strong>3 perguntinhas</strong> sobre a gente. Acerte as três e descubra a surpresa que está esperando por você lá dentro.</p>
+
+    <div class="quiz-step active" data-step="1">
+      <div class="q-num">Pergunta 1 de 3</div>
+      <h3>Em que dia começou o nosso namoro?</h3>
+      <button class="opt" data-correct="false">14 de fevereiro de 2020</button>
+      <button class="opt" data-correct="true">19 de fevereiro de 2020</button>
+      <button class="opt" data-correct="false">09 de fevereiro de 2020</button>
+      <button class="opt" data-correct="false">19 de fevereiro de 2021</button>
+    </div>
+
+    <div class="quiz-step" data-step="2">
+      <div class="q-num">Pergunta 2 de 3</div>
+      <h3>Em que cidade a gente se conheceu?</h3>
+      <button class="opt" data-correct="false">Florianópolis</button>
+      <button class="opt" data-correct="false">São Paulo</button>
+      <button class="opt" data-correct="true">Curitiba</button>
+      <button class="opt" data-correct="false">Porto Alegre</button>
+    </div>
+
+    <div class="quiz-step" data-step="3">
+      <div class="q-num">Pergunta 3 de 3</div>
+      <h3>Onde a gente se conheceu?</h3>
+      <button class="opt" data-correct="false">Em uma festa</button>
+      <button class="opt" data-correct="false">Por um app</button>
+      <button class="opt" data-correct="false">Na faculdade</button>
+      <button class="opt" data-correct="true">No antigo trabalho</button>
+    </div>
+
+    <div class="feedback" id="feedback"></div>
+
+    <div class="progress" aria-hidden="true">
+      <span class="pdot" id="p1"></span>
+      <span class="pdot" id="p2"></span>
+      <span class="pdot" id="p3"></span>
+    </div>
+
+    <div class="gate-final" id="gateFinal">
+      <h3>Acertou tudo, meu amor!</h3>
+      <p>Esta retrospectiva é para você — para celebrar tudo o que construímos juntos desde aquele 19 de fevereiro.</p>
+      <button id="openSite">Abrir a nossa história</button>
+    </div>
+  </div>
+</div>
+<!-- FLOATING HEARTS -->
+<div class="hearts" aria-hidden="true"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="ornament">~ a nossa história ~</div>
+  <div class="vday-badge">
+    <span>&#10084;</span> Feliz Dia dos Namorados &#10084;
+    <small>12 . 06 . 2026</small>
+  </div>
+  <h1>Mattheus<span class="amp">&amp;</span>Pamela</h1>
+  <div class="subtitle">Desde 19 de fevereiro de 2020</div>
+  <div class="date-pill">
+    <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+    Curitiba — PR
+    <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+  </div>
+  <div class="scroll-cue">role para começar</div>
+</header>
+
+<!-- COUNTER -->
+<section class="counter-section">
+  <div class="container">
+    <div class="divider"><span class="line"></span><span class="icon">~</span><span class="line"></span></div>
+    <div class="section-kicker">o tempo do nosso amor</div>
+    <h2 class="section-title">Juntos há</h2>
+    <div class="counter" id="counter" aria-live="polite">
+      <div class="cell"><div class="num" id="cYears">0</div><div class="lbl">anos</div></div>
+      <div class="cell"><div class="num" id="cMonths">0</div><div class="lbl">meses</div></div>
+      <div class="cell"><div class="num" id="cDays">0</div><div class="lbl">dias</div></div>
+      <div class="cell"><div class="num" id="cHours">0</div><div class="lbl">horas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="section-kicker">como tudo começou</div>
+    <h2 class="section-title">O nosso começo</h2>
+    <p>Foi em <span class="em">Curitiba</span>, no meio dos dias comuns de um <span class="em">antigo trabalho</span>, que os nossos caminhos resolveram se encontrar. Não houve roteiro nem primeiro encontro tradicional — havia apenas a sensação, calma e certa, de que <span class="em">algo bonito estava começando ali</span>.</p>
+    <p>No dia <span class="em">19 de fevereiro de 2020</span>, dissemos sim ao que já existia entre nós. Desde então, cada página foi sendo escrita a quatro mãos — e, mais tarde, a oito mãozinhas.</p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-kicker">cada momento que nos formou</div>
+    <h2 class="section-title">Nossa linha do tempo</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/julho-14-2020.jpeg" alt="Nós dois em 2020" loading="lazy"></div>
+          <div class="when">19 de fevereiro de 2020</div>
+          <h3><span class="icon">~</span>O início do nosso namoro</h3>
+          <p>Em Curitiba, no antigo trabalho onde tudo começou, oficializamos o que o coração já sabia. Foi nesse dia que escolhi você — e você escolheu a mim.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/jeitinho.jpeg" alt="O nosso jeitinho" loading="lazy"></div>
+          <div class="when">14 de julho de 2020</div>
+          <h3><span class="icon">~</span>O nosso jeitinho</h3>
+          <p>Nos primeiros meses, uma foto que virou símbolo da gente: o rosto colado, o olhar tranquilo, a leveza de quem acabou de descobrir que está no lugar certo, com a pessoa certa.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/luiza-ecografia.jpeg" alt="Ecografia da Luiza" loading="lazy"></div>
+          <div class="when">23 de novembro de 2020</div>
+          <h3><span class="icon">~</span>O primeiro olhar para a Luiza</h3>
+          <p>A ecografia que mudou tudo. Foi ali, em preto e branco, que conhecemos o rostinho da nossa filha pela primeira vez — e o amor que já existia ganhou nome: Luiza.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/uniao.jpeg" alt="Nossa união" loading="lazy"></div>
+          <div class="when">Janeiro de 2021</div>
+          <h3><span class="icon">~</span>Nossa união estável</h3>
+          <p>Decidimos dividir o mesmo teto, a mesma rotina, os mesmos sonhos — e a vida já vinha nos preparando para a maior alegria que estava por vir. Foi quando o "eu" e o "você" viraram, de vez, um "nós".</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/luiza-nascimento.jpeg" alt="Luiza recém-nascida" loading="lazy"></div>
+          <div class="when">02 de março de 2021</div>
+          <h3><span class="icon">~</span>Chegou a Luiza</h3>
+          <p>Nossa primeira filha veio para transformar tudo em mais. Mais amor, mais propósito, mais motivos para sermos a melhor versão de nós mesmos. A vida ficou inteira.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/batizado-luiza.jpeg" alt="Batizado da Luiza" loading="lazy"></div>
+          <div class="when">28 de maio de 2022</div>
+          <h3><span class="icon">~</span>Batizado da Luiza</h3>
+          <p>Um dia de fé, de família e de agradecimento. Vestidos de branco, papai e mamãe ao lado da nossa princesa, celebrando o presente mais bonito que recebemos.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/familia-aniv-luiza.jpeg" alt="Aniversário da Luiza no parque" loading="lazy"></div>
+          <div class="when">aniversário da Luiza</div>
+          <h3><span class="icon">~</span>Um dia no parque</h3>
+          <p>Os quatro juntos celebrando mais um ano da nossa Lulu. Sol, grama, abraços apertados e a certeza de que esses são os dias que a gente vai lembrar para sempre.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/benjamin-ecografia.jpeg" alt="Ecografia do Benjamin" loading="lazy"></div>
+          <div class="when">17 de maio de 2024</div>
+          <h3><span class="icon">~</span>O primeiro olhar para o Benjamin</h3>
+          <p>De novo a magia da primeira ecografia — agora do nosso menino. Outro coraçãozinho batendo, outro nome escolhido com amor: Benjamin estava a caminho.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/benjamin-nascimento.jpeg" alt="Benjamin recém-nascido" loading="lazy"></div>
+          <div class="when">16 de outubro de 2024</div>
+          <h3><span class="icon">~</span>Chegou o Benjamin</h3>
+          <p>E quando achamos que o coração já estava cheio, ele chegou para nos ensinar que sempre cabe mais. Nossa família ganhou um novo brilho, e a nossa casa, um novo riso.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/familia-aniv-benjamin.jpeg" alt="Aniversário do Benjamin" loading="lazy"></div>
+          <div class="when">aniversário do Benji</div>
+          <h3><span class="icon">~</span>Nossa família coroada de amor</h3>
+          <p>Balões azuis e dourados, coroinhas, e os quatro juntos celebrando o nosso pequeno príncipe. Mais um marco, mais uma prova de que a vida é boa demais ao seu lado.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="dot"></span>
+        <div class="tl-card">
+          <div class="tl-thumb"><img src="img/familia-completa.jpeg" alt="Nossa família completa" loading="lazy"></div>
+          <div class="when">hoje</div>
+          <h3><span class="icon">~</span>E o melhor ainda está por vir</h3>
+          <p>Olhamos para trás com gratidão e para frente com a certeza de que essa história está só no começo. Somos quatro agora — e cada dia ao seu lado é uma nova página deste mesmo livro de amor.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-kicker">memórias em imagens</div>
+    <h2 class="section-title">Nossa galeria</h2>
+    <div class="gallery">
+      <div class="photo big">
+        <img src="img/julho-14-2020.jpeg" alt="Mattheus e Pamela — 14 de julho de 2020" loading="lazy">
+        <div class="caption">14 de julho de 2020 — o nosso jeitinho</div>
+      </div>
+      <div class="photo med">
+        <img src="img/luiza-ecografia.jpeg" alt="Ecografia da Luiza" loading="lazy">
+        <div class="caption">23.11.2020 — primeiro olhar para a Luiza</div>
+      </div>
+      <div class="photo tall">
+        <img src="img/luiza-nascimento.jpeg" alt="Luiza recém-nascida" loading="lazy">
+        <div class="caption">02.03.2021 — bem-vinda, Luiza</div>
+      </div>
+      <div class="photo sq">
+        <img src="img/luiza-bebe.jpeg" alt="Luiza bebê" loading="lazy">
+        <div class="caption">nossa Lulu — one of a kind</div>
+      </div>
+      <div class="photo sq">
+        <img src="img/familia-aniv-luiza.jpeg" alt="Família no parque — aniversário da Luiza" loading="lazy">
+        <div class="caption">os quatro — aniversário da Luiza, no parque</div>
+      </div>
+      <div class="photo wide">
+        <img src="img/batizado-luiza.jpeg" alt="Batizado da Luiza com papai e mamãe" loading="lazy">
+        <div class="caption">28 de maio de 2022 — batizado da Luiza, com papai e mamãe</div>
+      </div>
+      <div class="photo med">
+        <img src="img/benjamin-ecografia.jpeg" alt="Ecografia do Benjamin" loading="lazy">
+        <div class="caption">17.05.2024 — primeiro olhar para o Benjamin</div>
+      </div>
+      <div class="photo med">
+        <img src="img/benjamin-nascimento.jpeg" alt="Benjamin recém-nascido" loading="lazy">
+        <div class="caption">16.10.2024 — bem-vindo, Benjamin</div>
+      </div>
+      <div class="photo med">
+        <img src="img/benjamin-bebe.jpeg" alt="Benjamin bebê" loading="lazy">
+        <div class="caption">nosso Benji</div>
+      </div>
+      <div class="photo big">
+        <img src="img/familia-aniv-benjamin.jpeg" alt="Família comemorando o aniversário do Benjamin" loading="lazy">
+        <div class="caption">aniversário do Benji — nossa família coroada de amor</div>
+      </div>
+      <div class="photo tall">
+        <img src="img/jeitinho.jpeg" alt="O nosso jeitinho" loading="lazy">
+        <div class="caption">o nosso jeitinho de sempre</div>
+      </div>
+      <div class="photo tall">
+        <img src="img/uniao.jpeg" alt="Esperando a Luiza" loading="lazy">
+        <div class="caption">esperando a Luiza — o começo da nossa família</div>
+      </div>
+      <div class="photo big">
+        <img src="img/familia-completa.jpeg" alt="Nossa família completa" loading="lazy">
+        <div class="caption">nós quatro — natal em família</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:var(--gold-deep);font-style:italic">
+      <small>~ memórias que enchem o nosso álbum ~</small>
+    </p>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter-section">
+  <div class="container">
+    <div class="section-kicker">com todo o meu amor</div>
+    <h2 class="section-title">Para você, Pamela</h2>
+    <article class="letter">
+      <div class="greet tw">Meu Amor,</div>
+      <p class="first tw">Tem dias que eu paro, olho para o nosso teto, para a Luiza correndo pela casa, para o Benji rindo no seu colo, e penso: como é que eu fui ter tanta sorte assim? Tudo começou no dia em que você disse sim para mim — e é por esse "sim" que eu preciso te agradecer primeiro. Foi ele que abriu a porta para a vida mais bonita que eu já tive.</p>
+      <p class="tw">Obrigado por estar do meu lado nos momentos mais difíceis, daqueles que pesam de verdade, e também nos mais felizes, daqueles que a gente quer guardar para sempre. Você nunca soltou a minha mão — em nenhum dos dois.</p>
+      <p class="tw">Obrigado por me proporcionar uma família tão linda. O meu mundo, hoje, gira em torno de vocês três: você, a Luiza e o Benji. Eu não trocaria nada disso. Por nada nesse mundo, por nada de valor. Tudo o que eu tenho e tudo o que eu sou só faz sentido porque vocês existem.</p>
+      <p class="tw">Agradeço a Deus, todos os dias, por ter colocado essa família no meu caminho. Por ter me dado você, com toda a sua paciência, com a calma para lidar com o meu jeito meio louco, e com o coração enorme para me entender um pouquinho mais a cada dia que passa.</p>
+      <p class="tw">Eu prometo continuar escolhendo você. Em cada manhã de cansaço, em cada noite de risadas, em cada nova fase desta família que é nossa. Que venham muitos outros fevereiros, muitas outras páginas, muitos outros para sempre.</p>
+      <p class="tw">Eu te amo — hoje, ontem e em todos os dias que ainda virão.</p>
+      <p class="tw" style="text-align:center;font-family:'Great Vibes',cursive;color:var(--rose-deep);font-size:42px;line-height:1.1;margin:30px 0 10px">Feliz Dia dos Namorados, meu amor.</p>
+      <div class="sign tw">Seu, Mattheus</div>
+    </article>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div><span class="heart">&#10084;</span></div>
+  Mattheus &amp; Pamela
+  <span class="small">desde 19 . 02 . 2020</span>
+  <div class="vday-foot">&#10084; Feliz Dia dos Namorados &#10084;<br><em>12 de junho de 2026</em></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">×</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+// LIGHTBOX
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCap');
+  const lbClose = document.getElementById('lbClose');
+  function open(src, alt, caption){
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lbCap.textContent = caption || '';
+    lb.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('show');
+    setTimeout(()=>{ lbImg.src=''; }, 350);
+    document.body.style.overflow = '';
+  }
+  // Timeline thumbs
+  document.querySelectorAll('.tl-thumb').forEach(t=>{
+    t.addEventListener('click', ()=>{
+      const img = t.querySelector('img');
+      if(!img) return;
+      const card = t.closest('.tl-card');
+      const title = card ? (card.querySelector('h3')?.textContent.replace(/^~\s*/, '').trim() || '') : '';
+      const when = card ? (card.querySelector('.when')?.textContent.trim() || '') : '';
+      const cap = [when, title].filter(Boolean).join(' — ');
+      open(img.src, img.alt, cap);
+    });
+  });
+  // Gallery photos
+  document.querySelectorAll('.gallery .photo').forEach(p=>{
+    const img = p.querySelector('img');
+    if(!img) return;
+    p.addEventListener('click', ()=>{
+      const caption = p.querySelector('.caption')?.textContent.trim() || '';
+      open(img.src, img.alt, caption);
+    });
+  });
+  lbClose.addEventListener('click', close);
+  lb.addEventListener('click', (e)=>{ if(e.target === lb) close(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && lb.classList.contains('show')) close(); });
+})();
+
+// QUIZ GATE
+(function(){
+  const gate = document.getElementById('gate');
+  const feedback = document.getElementById('feedback');
+  const finalBox = document.getElementById('gateFinal');
+  const dots = [document.getElementById('p1'),document.getElementById('p2'),document.getElementById('p3')];
+  const wrongs = [
+    'Quase! Tenta de novo, meu amor.',
+    'Não foi dessa vez, vai com calma...',
+    'Hmm, lembra direitinho ~',
+    'Ainda não. Você consegue!',
+  ];
+  let currentStep = 1;
+
+  function showStep(n){
+    document.querySelectorAll('.quiz-step').forEach(el=>el.classList.remove('active'));
+    const s = document.querySelector('.quiz-step[data-step="'+n+'"]');
+    if(s) s.classList.add('active');
+    feedback.textContent = '';
+    feedback.classList.remove('ok');
+  }
+
+  document.querySelectorAll('.opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const correct = btn.getAttribute('data-correct') === 'true';
+      if(correct){
+        btn.classList.add('right');
+        dots[currentStep-1].classList.add('done');
+        feedback.textContent = 'Isso mesmo! 💗';
+        feedback.classList.add('ok');
+        setTimeout(()=>{
+          if(currentStep < 3){
+            currentStep++;
+            showStep(currentStep);
+          } else {
+            // finished
+            document.querySelectorAll('.quiz-step').forEach(el=>el.classList.remove('active'));
+            feedback.textContent = '';
+            finalBox.classList.add('show');
+          }
+        }, 700);
+      } else {
+        btn.classList.add('wrong');
+        feedback.textContent = wrongs[Math.floor(Math.random()*wrongs.length)];
+        feedback.classList.remove('ok');
+        setTimeout(()=>btn.classList.remove('wrong'), 800);
+      }
+    });
+  });
+
+  document.getElementById('openSite').addEventListener('click', ()=>{
+    gate.classList.add('hidden');
+    document.body.classList.remove('locked');
+    setTimeout(()=>{ gate.style.display='none'; }, 900);
+  });
+})();
+
+// Live counter since 19/02/2020
+const start = new Date(2020, 1, 19, 0, 0, 0); // month is 0-indexed: 1 = Feb
+function pad(n){return n.toString()}
+function updateCounter(){
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  let months = now.getMonth() - start.getMonth();
+  let days = now.getDate() - start.getDate();
+  let hours = now.getHours() - start.getHours();
+  if(hours < 0){hours += 24; days -= 1}
+  if(days < 0){
+    const prev = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prev.getDate();
+    months -= 1;
+  }
+  if(months < 0){months += 12; years -= 1}
+  document.getElementById('cYears').textContent  = pad(years);
+  document.getElementById('cMonths').textContent = pad(months);
+  document.getElementById('cDays').textContent   = pad(days);
+  document.getElementById('cHours').textContent  = pad(hours);
+}
+updateCounter();
+setInterval(updateCounter, 60 * 1000);
+
+// Floating hearts
+(function(){
+  const wrap = document.querySelector('.hearts');
+  const symbols = ['\u2764', '\u2665', '\u273F'];
+  for(let i=0;i<22;i++){
+    const h = document.createElement('span');
+    h.className = 'heart';
+    h.textContent = symbols[i % symbols.length];
+    const size = 12 + Math.random()*20;
+    h.style.fontSize = size + 'px';
+    h.style.left = (Math.random()*100) + 'vw';
+    h.style.animationDuration = (12 + Math.random()*18) + 's';
+    h.style.animationDelay = (-Math.random()*20) + 's';
+    h.style.opacity = (0.18 + Math.random()*0.35).toFixed(2);
+    wrap.appendChild(h);
+  }
+})();
+
+// Timeline reveal on scroll
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+}, {threshold:.18});
+document.querySelectorAll('.tl-item').forEach(el=>io.observe(el));
+
+// LETTER TYPEWRITER
+(function(){
+  const letter = document.querySelector('.letter');
+  if(!letter) return;
+  const blocks = Array.from(letter.querySelectorAll('.tw'));
+  // Capture original text and clear
+  const items = blocks.map(el=>{
+    const txt = el.textContent;
+    el.dataset.fullText = txt;
+    el.textContent = '';
+    el.classList.add('pending');
+    return el;
+  });
+
+  function speedFor(ch){
+    if(ch === '\n') return 120;
+    if(ch === '.' || ch === '!' || ch === '?') return 220;
+    if(ch === ',' || ch === ';' || ch === ':') return 110;
+    return 18 + Math.random()*22;
+  }
+
+  function typeBlock(el, done){
+    const text = el.dataset.fullText;
+    el.classList.remove('pending');
+    el.classList.add('typing');
+    let i = 0;
+    function step(){
+      if(i >= text.length){
+        el.classList.remove('typing');
+        setTimeout(done, 260);
+        return;
+      }
+      el.textContent += text.charAt(i);
+      const s = speedFor(text.charAt(i));
+      i++;
+      setTimeout(step, s);
+    }
+    step();
+  }
+
+  function runAll(){
+    let idx = 0;
+    function next(){
+      if(idx >= items.length) return;
+      typeBlock(items[idx++], next);
+    }
+    next();
+  }
+
+  let started = false;
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && !started){
+        started = true;
+        obs.disconnect();
+        runAll();
+      }
+    });
+  }, {threshold:.25});
+  obs.observe(letter);
+})();
+</script>
+</body>
+</html>
