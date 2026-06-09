@@ -516,6 +516,167 @@ body.locked{overflow:hidden;height:100vh}
 }
 @keyframes caret{50%{opacity:0}}
 .letter .tw.pending{opacity:.35}
+
+/* =========================================================
+   RESPONSIVIDADE — celular, tablet, desktop, telas largas
+   ========================================================= */
+
+/* Imagens nunca estouram o container */
+img{max-width:100%;height:auto}
+
+/* Tablets e telas médias (até 1024px) */
+@media (max-width:1024px){
+  body{font-size:17px}
+  section{padding:64px 22px}
+  .letter-section{padding:90px 22px}
+  .container{max-width:920px}
+  .gallery{grid-auto-rows:130px;gap:12px}
+}
+
+/* Tablets pequenos / celular grande (até 760px) */
+@media (max-width:760px){
+  body{font-size:16px;line-height:1.6}
+  section{padding:54px 18px}
+  .letter-section{padding:70px 18px}
+  .hero{padding:50px 18px;min-height:auto;padding-top:80px;padding-bottom:80px}
+  .hero .ornament{font-size:22px}
+  .hero h1{line-height:1.05}
+  .hero .subtitle{letter-spacing:4px;margin-top:14px}
+  .hero .date-pill{
+    margin-top:24px;padding:10px 18px;font-size:13px;letter-spacing:2px;
+    gap:10px;flex-wrap:wrap;justify-content:center;text-align:center;
+  }
+  .hero .scroll-cue{bottom:18px;font-size:12px;letter-spacing:2px}
+  .vday-badge{
+    padding:10px 18px;font-size:12px;letter-spacing:2px;
+    margin-bottom:18px;flex-wrap:wrap;text-align:center;
+  }
+  .vday-badge small{letter-spacing:4px;font-size:10px}
+  .divider{margin:34px auto}
+  .section-title{line-height:1.15}
+  .section-kicker{font-size:11px;letter-spacing:4px}
+  .counter{padding:26px 16px;border-radius:18px}
+  .counter .lbl{font-size:11px;letter-spacing:3px}
+  .intro p{font-size:18px}
+  .tl-card{padding:18px 18px;border-radius:14px}
+  .tl-card h3{font-size:20px}
+  .tl-card p{font-size:16px}
+  .tl-card .when{font-size:13px;letter-spacing:2px}
+  .tl-thumb{margin:-18px -18px 14px;height:170px;border-radius:14px 14px 0 0}
+  .letter{padding:40px 22px;border-radius:14px}
+  .letter .greet{font-size:38px}
+  .letter p{font-size:17px}
+  .letter p.first::first-letter{font-size:44px}
+  .letter .sign{font-size:36px;margin-top:24px}
+  .gate{padding:18px}
+  .gate-card{padding:38px 24px;border-radius:18px}
+  .gate-card .intro-text{font-size:16px;margin-bottom:22px}
+  .quiz-step h3{font-size:20px;margin-bottom:18px}
+  .opt{font-size:16px;padding:12px 14px}
+  .gate-final h3{font-size:44px}
+  .gate-final p{font-size:16px}
+  .gate-final button{padding:12px 26px;font-size:13px;letter-spacing:3px}
+  .footer{padding:48px 18px 40px;letter-spacing:1px}
+  .footer .small{font-size:12px;letter-spacing:3px}
+  .lightbox{padding:16px}
+  .lightbox .lb-close{top:14px;right:14px;width:38px;height:38px}
+  .lightbox .lb-cap{bottom:14px;font-size:13px}
+}
+
+/* Celular médio (até 480px) */
+@media (max-width:480px){
+  body{font-size:15.5px}
+  section{padding:46px 14px}
+  .letter-section{padding:60px 14px}
+  .hero{padding:60px 14px}
+  .hero h1{font-size:clamp(54px,15vw,84px)}
+  .hero .subtitle{font-size:14px;letter-spacing:3px}
+  .hero .date-pill{font-size:12px;padding:9px 14px;letter-spacing:1.5px}
+  .hero .date-pill svg{width:14px;height:14px}
+  .hero::before,.hero::after{width:200px;height:200px}
+  .ornament{font-size:20px}
+  .vday-badge{font-size:11px;padding:8px 14px;letter-spacing:1.5px}
+  .vday-mini{font-size:11px;letter-spacing:2px;padding:6px 14px}
+  .counter{padding:22px 12px;gap:18px}
+  .counter .num{font-size:clamp(28px,9vw,42px)}
+  .counter .lbl{font-size:10px;letter-spacing:2px}
+  .intro p{font-size:17px}
+  .timeline-section{padding-top:40px}
+  .timeline{margin-top:30px}
+  .timeline::before{left:12px}
+  .tl-item, .tl-item:nth-child(even){padding:14px 14px 14px 34px}
+  .tl-item .dot, .tl-item:nth-child(odd) .dot, .tl-item:nth-child(even) .dot{left:3px;width:14px;height:14px;top:28px}
+  .tl-card{padding:16px 14px}
+  .tl-card h3{font-size:18px}
+  .tl-card p{font-size:15px}
+  .tl-thumb{margin:-16px -14px 12px;height:140px;border-radius:12px 12px 0 0}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px;margin-top:30px}
+  .photo, .photo.big, .photo.med, .photo.tall, .photo.wide, .photo.sq{
+    grid-column:span 1;grid-row:span 1;aspect-ratio:4/3;
+  }
+  .photo .caption{opacity:1;transform:none;font-size:13px;padding:18px 12px 10px}
+  .letter{padding:30px 18px}
+  .letter::before, .letter::after{width:36px;height:36px}
+  .letter .greet{font-size:32px;margin-bottom:14px}
+  .letter p{font-size:16px;text-align:left}
+  .letter p.first::first-letter{font-size:38px;padding:4px 8px 0 0}
+  .letter .sign{font-size:30px}
+  .gate{padding:14px;align-items:flex-start;padding-top:24px}
+  .gate-card{padding:30px 18px}
+  .gate-card h1{font-size:clamp(48px,14vw,72px)}
+  .gate-card .ornament{font-size:20px}
+  .gate-card .intro-text{font-size:15px}
+  .quiz-step h3{font-size:18px}
+  .opt{font-size:15px;padding:11px 12px;margin:8px 0}
+  .q-num{font-size:11px;letter-spacing:3px}
+  .gate-final h3{font-size:38px}
+  .gate-final p{font-size:15px}
+  .progress{margin-top:20px}
+  .footer{padding:38px 14px 32px;font-size:14px}
+  .vday-foot{font-size:11px;letter-spacing:2px}
+  .vday-foot em{font-size:20px}
+}
+
+/* Celular pequeno (até 360px) */
+@media (max-width:360px){
+  body{font-size:14.5px}
+  .hero h1{font-size:48px}
+  .gate-card{padding:24px 14px}
+  .gate-card h1{font-size:46px}
+  .counter{grid-template-columns:repeat(2,1fr);gap:14px}
+  .counter .cell + .cell::before{display:none}
+}
+
+/* Orientação paisagem em celular (altura baixa) */
+@media (max-height:520px) and (orientation:landscape){
+  .hero{min-height:auto;padding:40px 18px}
+  .hero h1{font-size:clamp(48px,8vw,80px)}
+  .hero .scroll-cue{position:static;transform:none;margin-top:18px;display:inline-block}
+  .gate{align-items:flex-start;padding-top:20px}
+}
+
+/* Telas largas (acima de 1400px) — melhor aproveitamento */
+@media (min-width:1400px){
+  .container{max-width:1200px}
+  body{font-size:19px}
+  .gallery{grid-auto-rows:160px}
+}
+
+/* Suporte a touch — mostra captions sem hover */
+@media (hover:none){
+  .photo .caption{opacity:1;transform:none}
+}
+
+/* Respeita preferência de menos animação */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001s !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001s !important;
+    scroll-behavior:auto !important;
+  }
+  .heart, .hearts{display:none}
+}
 </style>
 </head>
 <body class="locked">
@@ -1000,10 +1161,10 @@ document.querySelectorAll('.tl-item').forEach(el=>io.observe(el));
   });
 
   function speedFor(ch){
-    if(ch === '\n') return 120;
-    if(ch === '.' || ch === '!' || ch === '?') return 220;
-    if(ch === ',' || ch === ';' || ch === ':') return 110;
-    return 18 + Math.random()*22;
+    if(ch === '\n') return 45;
+    if(ch === '.' || ch === '!' || ch === '?') return 70;
+    if(ch === ',' || ch === ';' || ch === ':') return 40;
+    return 14;
   }
 
   function typeBlock(el, done){
@@ -1011,18 +1172,30 @@ document.querySelectorAll('.tl-item').forEach(el=>io.observe(el));
     el.classList.remove('pending');
     el.classList.add('typing');
     let i = 0;
-    function step(){
-      if(i >= text.length){
-        el.classList.remove('typing');
-        setTimeout(done, 260);
-        return;
+    let last = performance.now();
+    let acc = 0;
+    let nextDelay = speedFor(text.charAt(0) || '');
+    function step(now){
+      const dt = now - last;
+      last = now;
+      acc += dt;
+      // adiciona vários caracteres por frame se necessário (suaviza em telas a 60/120fps)
+      let buffer = '';
+      while(i < text.length && acc >= nextDelay){
+        acc -= nextDelay;
+        buffer += text.charAt(i);
+        i++;
+        nextDelay = speedFor(text.charAt(i) || '');
       }
-      el.textContent += text.charAt(i);
-      const s = speedFor(text.charAt(i));
-      i++;
-      setTimeout(step, s);
+      if(buffer) el.textContent += buffer;
+      if(i < text.length){
+        requestAnimationFrame(step);
+      } else {
+        el.classList.remove('typing');
+        setTimeout(done, 160);
+      }
     }
-    step();
+    requestAnimationFrame(step);
   }
 
   function runAll(){
